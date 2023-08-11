@@ -14,11 +14,17 @@ Mongo DB
 5. **Project Objectives:**
    
 Clone the core e-commerce features of Takealot to provide users with a similar shopping experience.
+
 Develop a user-friendly product catalogue, search, and filtering system for easy product discovery.
+
 Implement a secure user registration and authentication system, allowing users to create accounts and log in.
+
 Build a shopping cart and checkout process that enables users to add products, review orders, and make payments.
+
 Integrate a secure payment gateway to facilitate online transactions.
+
 Create an order processing system for managing customer orders, order status, and notifications.
+
 Develop an administration panel for managing products, orders, and user accounts.
 
 5.**Scope Statement:**
