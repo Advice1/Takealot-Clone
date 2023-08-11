@@ -43,11 +43,13 @@ Order processing system with order tracking and status notifications.
 Backend administration panel for managing products, orders, and users.
 
 5. **Scope Constraints:**
-6. 
+   
 The project timeline is set at 6 months from project kick-off to completion.
 Integration with third-party APIs for product data and payment processing is out of scope.
 Backend administration panel for managing products, orders, and users is out of scope.
-7. Acceptance Criteria:
+
+7. **Acceptance Criteria:**
+   
 The project will be considered successful if:
 The cloned e-commerce website replicates the specified features and functionalities like Takealot.
 Users can browse products, add them to the cart, complete the checkout process, and receive order status updates.
