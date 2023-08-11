@@ -1,17 +1,17 @@
 # Takealot-Clone
 
-##Project Overview:
+## Project Overview:
    
 The E-commerce Website Cloning Project aims to create a functional and feature-rich e-commerce platform inspired by Takealot. The project involves replicating key features and functionalities of Takealot, including product listings, user accounts, shopping cart, order processing, and payment integration.
 
-##Technologies
+## Technologies
    
 Angular
 GitHub
 JAVA (Quarkus framework)
 Mongo DB
 
-##Project Objectives:
+## Project Objectives:
    
 Clone the core e-commerce features of Takealot to provide users with a similar shopping experience.
 
@@ -27,9 +27,9 @@ Create an order processing system for managing customer orders, order status, an
 
 Develop an administration panel for managing products, orders, and user accounts.
 
-##Scope Statement:
+## Scope Statement:
    
-###The project scope includes the following major components:
+### The project scope includes the following major components:
 
 Standalone components
 
@@ -49,7 +49,7 @@ Backend administration panel for managing products, orders, and users.
 
 Integration with a third-party payment gateway for secure payment processing
 
-##Key Deliverables:
+## Key Deliverables:
 
 User authentication system with registration and login functionality.
 
@@ -61,7 +61,7 @@ Order processing system with order tracking and status notifications.
 
 Backend administration panel for managing products, orders, and users.
 
-##Scope Constraints:
+## Scope Constraints:
    
 The project timeline is set at 6 months from project kick-off to completion.
 
@@ -69,7 +69,7 @@ Integration with third-party APIs for product data and payment processing is out
 
 Backend administration panel for managing products, orders, and users is out of scope.
 
-##Acceptance Criteria:
+## Acceptance Criteria:
    
 The project will be considered successful if:
 
