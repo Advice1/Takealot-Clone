@@ -1,0 +1,37 @@
+.v{
+  width:1000px;
+  float: right;
+}
+a{
+  color:black;
+  border:10px ;
+  border-left: blueviolet;
+}
+a:hover {
+  text-decoration: underline;
+  color: blue;
+}
+.love{
+  background-color: crimson;
+  border-radius:0px;
+  margin-right: 4px;
+}
+svg{
+  color:white;
+}
+.cart{
+  background-color: blue;
+  border-radius:70px;
+}
+.name{
+  position:absolute;
+  top:68px;
+  right:1010px;
+  text-decoration: none !important;
+}
+.name.hover{
+  text-decoration: none;
+}
+.w{
+  width: 200px;
+}

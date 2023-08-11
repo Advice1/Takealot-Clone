@@ -1,0 +1,220 @@
+
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-sm navbar-light">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
+        <ul class="navbar-nav  me-auto mb-2 mb-lg-0 px-0">
+          <li class="nav-item px-5">
+            <a routerLink="home"><img src="assets/Products/takealot.svg" class="img-fluid w"></a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" routerLink="registration" routerLinkActive="danger">Help Center</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="registration" routerLinkActive="danger">Sell on Takealot</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page"  data-bs-toggle="modal" data-bs-target="#LoginModal" routerLinkActive="success">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="registration" data-bs-toggle="modal" data-bs-target="#RegisterModal" routerLinkActive="danger">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  routerLink="login" routerLinkActive="warning">Orders</a>
+              <!--<div *ngIf="LoginInUser()==null">
+                <div class="nav-link active" aria-current="page"  data-bs-toggle="modal" data-bs-target="#LoginModal" routerLinkActive="success">hello</div>
+              </div>-->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  routerLink="customers" routerLinkActive="warning">My Account</a>
+            </li>
+            <li class="nav-item love">
+              <span class="badge rounded-pill ">
+                <a class="nav-link"  routerLink="login" routerLinkActive="warning">
+                  <svg viewBox="0 0 24 24" role="presentation" style="width: 18px; height: 18px;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3
+                            7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3
+                            19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" style="fill: currentcolor;"></path></svg></a>
+              </span>
+            </li>
+            <li class="nav-item badge love  bg-success ">
+              <a class="nav-link "  routerLink="login" routerLinkActive="warning">
+                <svg viewBox="0 0 24 24" role="presentation" class="badge-button-module_badge-icon_LvKrF" style="width: 18px; height: 18px;"><path d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z" style="fill: currentcolor;"></path></svg>
+                <span class="badge-count badge-button-module_badge-count_28PIS text-white"> 4</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<!--------------------------------------------------------------------------------------- -->
+
+<div class="container name w-25">
+  <div class="card" style="width: 14rem;">
+      <div class="dropdown "  >
+        <button class="btn  btn-secondary dropdown-toggle bg-dark" style="width: 14rem;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown button
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+  </div>
+</div>
+<!---------------------------------------------------------------------------------------- -->
+<div class="container-fluid bg-primary p-1 m-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+        <div class="input-group input-group-sm mb-2 v">
+          <input type="text"  class="form-control " placeholder="Search for Product,brand..." aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-danger" type="button" id="button-addon2">Button</button>
+        </div>
+        </div>
+        <div class="col-12">
+        <div class="btn-group btn-group-sm border border-success b v" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-success">Left</button>
+          <button type="button" class="btn btn-secondary">Middle</button>
+          <button type="button" class="btn btn-secondary">Right</button>
+          <button type="button" class="btn btn-secondary">Left</button>
+          <button type="button" class="btn btn-secondary">Middle</button>
+          <button type="button" class="btn btn-secondary">Right</button>
+          <button type="button" class="btn btn-secondary">Left</button>
+          <button type="button" class="btn btn-secondary">Middle</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--Login Modal -->
+<div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+     <!-- ------------------------------------------------------------------- --->
+      <div class="container">
+        <h4 class="modal-title pb-4">Login</h4>
+        <form [formGroup]="Login">
+          <div class="row g-4">
+            <div class=" col">
+              <input formControlName="email" type="email"  class="form-control" placeholder="Email" required>
+              <div *ngIf="GetEmail().invalid && GetEmail().touched">
+                <small *ngIf="GetEmail().hasError('required')" class="text-danger">Email is required</small>
+                <small *ngIf="GetEmail().hasError('email')" class="text-danger">Email is not valid</small>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <input formControlName="password" type="password"  class="form-control" placeholder="Password" required aria-label="Password">
+              <div *ngIf="GetPassword().touched&&GetPassword().invalid ">
+                <small *ngIf="GetPassword().hasError('required')" class="text-danger">required in here..</small>
+              </div>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-danger form-control " (click)="LoginInUser()" >Sign In</button>
+            </div>
+
+              <div class="col-12">
+                <button type="submit" class="btn btn-danger form-control btn-block" (click)="TestLogin()">TEST</button>
+              </div>
+
+
+            <div class="col-12 g-4">
+              <div class="text-center">
+                <a class="text-muted" href="#!">Forgot password?</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="d-flex align-items-center justify-content-center pb-4">
+                <p class="mb-0 me-2">Don't have an account?</p>
+                <button type="button" class="btn btn-outline-danger" (click)="RegisterPage()">Create new</button>
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- ------------------------------------------------------------------ --->
+    </div>
+  </div>
+</div>
+<!--Register Modal -->
+<div class="modal  fade" id="RegisterModal" tabindex="-1" aria-labelledby="RegisterModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <!-- ------------------------------------------------------------------- --->
+      <div class="container">
+        <h4 class="modal-title pb-3">Register</h4>
+        <form [formGroup] = 'Register' (ngSubmit)="OnSubmint()">
+          <div class="row g-4">
+            <div class=" col-12">
+              <input formControlName="name" type="text" class="form-control" placeholder="Name">
+              <div *ngIf="GetName().touched && GetName().invalid">
+                <small *ngIf="GetName().hasError('required')" class="text-danger">Name is required</small>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <input formControlName="surname" type="text" class="form-control" placeholder="Surname">
+              <div *ngIf="GetSurname().touched && GetSurname().invalid ">
+                <small *ngIf="GetSurname().hasError('required')" class="text-danger">Surname is required</small>
+
+              </div>
+            </div>
+
+            <div class=" col-12">
+              <input formControlName="email" type="email" class="form-control" placeholder="Email" required>
+
+            </div>
+
+            <div class="col-12">
+              <input formControlName="password" type="password" class="form-control" placeholder="Password" required aria-label="Password" >
+            </div>
+
+            <div class="col-12">
+              <input formControlName="confirmPassword" type="password"placeholder="Confirm Password" class="form-control">
+            </div>
+
+            <div class="col-12">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" required>
+                <label class="form-check-label">By clicking here you agree with the T&C</label>
+              </div>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" (click)="SaveUserToSassion(GetEmail().value)" class="btn btn-danger form-control">SignUp</button>
+            </div>
+            <div class="col-12">
+              <button type="button" class="btn btn-danger form-control btn-block"  (click)="Test()" >TEST</button>
+            </div>
+          </div>
+
+        </form>
+        <div *ngFor = "let count of MyArray; let i=index; let M=even">
+          <div *ngIf="!M">
+          <ul>
+            <li>{{count}}</li>
+            <p>{{M}}</p>
+          </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ------------------------------------------------------------------ --->
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
