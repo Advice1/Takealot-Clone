@@ -7,6 +7,7 @@ import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 import { HomeComponent } from './home/home.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { FooterComponent } from './footer/footer.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FooterComponent } from './footer/footer.component';
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

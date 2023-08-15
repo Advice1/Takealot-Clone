@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import {ApplicationService} from "./Services/application.service";
 import {UserDetails} from "./user-details";
 import {SeasionsService} from "./Services/seasions.service";
+import {UsersService} from "./Services/users.service";
 
 
 @Component({
@@ -16,7 +17,7 @@ import {SeasionsService} from "./Services/seasions.service";
 export class AppComponent {
   title = 'EMS';
   @Input() name="advice"
-  constructor(private route:Router,private formBuilder:FormBuilder,private applicationService:ApplicationService,private sasionsService:SeasionsService) {}
+  constructor(private route:Router,private formBuilder:FormBuilder,private applicationService:ApplicationService,private sasionsService:SeasionsService,private usersService:UsersService) {}
   ngOnChanges(change: SimpleChanges){
   }
  ngOnInit(){
@@ -81,12 +82,16 @@ export class AppComponent {
     })
   }
 
-OnSubmint(){
-  var UserDetils:string[]=JSON.stringify(this.Register.value).split(',')
+OnSubmint() {
+  let UserDetils:string[]=JSON.stringify(this.Register.value).split(',')
 
-  if(this.Register.get('name')?.value !== this.Details.name){
+  alert("TES"+JSON.stringify(this.Register.value))
+
+  this.usersService.Registration(this.Details).subscribe(data => console.log(data))
+
+ /* if(this.Register.get('name')?.value !== this.Details.name){
     alert('failed to log in'+this.Register.get('name')?.value)
-  }
+  } */
 
 }
 
