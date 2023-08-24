@@ -10,10 +10,11 @@ export class UsersService {
 private Url:string ="http://localhost:8080/greeting/"
   constructor(private http: HttpClient) { }
 
-   Registration(userDetails:UserDetails){
+   Registration(userDetails:string){
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     let options = { headers: headers };
     return this.http.post(this.Url,userDetails,options);
     }
+
 
 }

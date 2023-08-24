@@ -32,7 +32,7 @@ export class AppComponent {
     this.ngDoCheck()
  }
   Register = this.formBuilder.group({
-    name: ['',[Validators.maxLength(40),Validators.required,Validators.pattern("[A-Za-z]*$")]],
+    name: ['Advice',[Validators.maxLength(40),Validators.required,Validators.pattern("[A-Za-z]*$")]],
     surname: ['',[Validators.maxLength(40),Validators.required,Validators.pattern("[A-Za-z]*$")]],
     email: ['',[Validators.required,Validators.max(60),Validators.email]],
     password: ['',Password],
@@ -64,6 +64,14 @@ export class AppComponent {
     Test:['Advice','Nxumalo'],
   };
 
+  userdetails : UserDetails = {
+    name:this.GetName(),
+    Surname:this.GetSurname(),
+    Email:this.GetPassword(),
+    password:this.GetPassword(),
+    Test:['Advice','Nxumalo'],
+  };
+
   Test() {
     this.Register.setValue({
       name: this.Details.name,
@@ -82,12 +90,16 @@ export class AppComponent {
     })
   }
 
+
 OnSubmint() {
   let UserDetils:string[]=JSON.stringify(this.Register.value).split(',')
 
   alert("TES"+JSON.stringify(this.Register.value))
+  //alert("TES"+JSON.stringify(this.userdetails))
 
-  this.usersService.Registration(this.Details).subscribe(data => console.log(data))
+
+
+  this.usersService.Registration(JSON.stringify(this.Register.value)).subscribe(data => console.log(data))
 
  /* if(this.Register.get('name')?.value !== this.Details.name){
     alert('failed to log in'+this.Register.get('name')?.value)
