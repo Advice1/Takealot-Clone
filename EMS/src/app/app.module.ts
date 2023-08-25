@@ -8,13 +8,17 @@ import { HomeComponent } from './home/home.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { FooterComponent } from './footer/footer.component';
 import {HttpClientModule} from "@angular/common/http";
+import { ProductsComponent } from './products/products.component';
+import { MyproductComponent } from './myproduct/myproduct.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ErrorPageComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    ProductsComponent,
+    MyproductComponent
   ],
     imports: [
         BrowserModule,
