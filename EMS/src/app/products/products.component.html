@@ -13,6 +13,10 @@
 
 <div class="container cards">
   <div class="row">
+    <div *ngFor="let prod of GetAllproducts;" >
+      <a href="#">check</a>
+      {{prod}}
+    </div>
     <div *ngFor="let count of [1,2,3,4,5,6,7,8]; let countSub = index" class="test  col-lg-3  py-3 ">
 
       <div class="card grow shadow">
