@@ -1,12 +1,12 @@
 <!-- -------------------------------------------------------------------- -->
   <div class="container name w-25">
-    <div class="card" style="width: 14rem;">
-      <div class="list-group lh-sm">
+    <div class="card " style="width: 14rem;">
+      <div class="list-group ">
         <a href="#" class="list-group-item list-group-item-action text-white bg-dark" aria-current="true">
           The current link item
         </a>
-        <div *ngFor="let count of application; let num=index">
-          <a href="#" (pointerover)="displayIndex(num)" class="list-group-item text-sm-start list-group-item-action">{{count}}</a>
+        <div *ngFor="let category of categories; let num=index">
+          <a href="#" (pointerover)="GetAllProductsfromCategory(category)" class="list-group-item text-lg-start text-uppercase  list-group-item-action">{{category}}</a>
         </div>
         <a href="#" class="list-group-item list-group-item-action text-white bg-success text-uppercase" aria-current="true">
           The current link item
@@ -43,25 +43,14 @@
 <div class="container w-50">
   <h4 >Feature Product</h4>
   <nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
-          <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
-</svg></span>
-        </a>
-      </li>
-      <div *ngFor="let count of departments">
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
+
+      <div  class="">
+       <a href="#"> <img src="https://media.takealot.com/b/2/cms/p/fit-in/180x120/original_images/HealthBeauty_Brand15.png" alt="Nivea Brand" ></a>
+        <img src="https://media.takealot.com/b/2/cms/p/fit-in/180x120/original_images/Computers_Brand4.png" alt="Canon" draggable="false" data-ref="brand-image">
+        <img src="https://media.takealot.com/b/2/cms/p/fit-in/160x70/original_images/398bc48815c135c0f074174a2a5d4acdb36534ea_dRbMDMz.png" alt="Samsung Brand Store Logo" draggable="false" data-ref="brand-image">
+        <img src="https://media.takealot.com/b/2/cms/p/fit-in/160x70/original_images/e268dc0cdc00e971ec2c1b4a26ae310bb8a368e1.png" alt="Cetaphil_Logo-(160-x-70)-" draggable="false" data-ref="brand-image" >
       </div>
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
-          </svg>
-        </a>
-      </li>
-    </ul>
+
   </nav>
 
 </div>
@@ -80,7 +69,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container  py-5">
   <div class="cards">
   <div class="card">
     <div class="card-body">

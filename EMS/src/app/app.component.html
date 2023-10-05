@@ -20,7 +20,17 @@
         <div class="d-flex">
           <ul class="navbar-nav me-auto mb-2 mb-sm-0">
             <li class="nav-item">
+              <div *ngIf="user==false">
               <a class="nav-link active" aria-current="page"  data-bs-toggle="modal" data-bs-target="#LoginModal" routerLinkActive="success">Login</a>
+              </div>
+              <div *ngIf="user==true">
+                <a class="nav-link active" aria-current="page"   routerLinkActive="success">{{userEmail}}</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div *ngIf="user==true">
+              <a class="nav-link"  (click)="logout()" routerLinkActive="danger">Logout</a>
+              </div>
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="registration" data-bs-toggle="modal" data-bs-target="#RegisterModal" routerLinkActive="danger">Register</a>
@@ -45,7 +55,7 @@
             <li class="nav-item badge love  bg-success ">
               <a class="nav-link "  routerLink="login" routerLinkActive="warning">
                 <svg viewBox="0 0 24 24" role="presentation" class="badge-button-module_badge-icon_LvKrF" style="width: 18px; height: 18px;"><path d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z" style="fill: currentcolor;"></path></svg>
-                <span class="badge-count badge-button-module_badge-count_28PIS text-white"> 4</span></a>
+                <span class="badge-count badge-button-module_badge-count_28PIS text-white"> {{SizeofCart}}</span></a>
             </li>
           </ul>
         </div>
@@ -75,8 +85,8 @@
       <div class="row">
         <div class="col-12">
         <div class="input-group input-group-sm mb-2 v">
-          <input type="text"  class="form-control " placeholder="Search for Product,brand..." aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button class="btn btn-danger" type="button" id="button-addon2">Button</button>
+          <input type="text"  class="form-control " placeholder="Search for Product,brand..." aria-label="Recipient's username" [(ngModel)]="searchTerm" aria-describedby="button-addon2">
+          <button class="btn btn-danger" type="button" id="button-addon2" (click)="searchProducts()">Button</button>
         </div>
         </div>
         <div class="col-12">
@@ -89,6 +99,7 @@
           <button type="button" class="btn btn-secondary">Right</button>
           <button type="button" class="btn btn-secondary">Left</button>
           <button type="button" class="btn btn-secondary">Middle</button>
+
         </div>
         </div>
       </div>
@@ -105,21 +116,21 @@
           <div class="row g-4">
             <div class=" col">
               <input formControlName="email" type="email"  class="form-control" placeholder="Email" required>
-              <div *ngIf="GetEmail().invalid && GetEmail().touched">
-                <small *ngIf="GetEmail().hasError('required')" class="text-danger">Email is required</small>
-                <small *ngIf="GetEmail().hasError('email')" class="text-danger">Email is not valid</small>
+              <div *ngIf="Login.get('email')?.invalid && Login.get('email')?.touched">
+                <small *ngIf="Login.get('email')?.hasError('required')" class="text-danger">Email is required</small>
+                <small *ngIf="Login.get('email')?.hasError('email')" class="text-danger">Email is not valid</small>
               </div>
             </div>
 
             <div class="col-12">
               <input formControlName="password" type="password"  class="form-control" placeholder="Password" required aria-label="Password">
-              <div *ngIf="GetPassword().touched&&GetPassword().invalid ">
-                <small *ngIf="GetPassword().hasError('required')" class="text-danger">required in here..</small>
+              <div *ngIf="Login.get('password')?.touched&&Login.get('password')?.invalid ">
+                <small *ngIf="Login.get('password')?.hasError('required')" class="text-danger">required in here..</small>
               </div>
             </div>
 
             <div class="col-12">
-                <button type="submit" class="btn btn-danger form-control " (click)="LoginInUser()" >Sign In</button>
+                <button type="submit" class="btn btn-danger form-control " (click)="LoginUser()" >Sign In</button>
             </div>
 
               <div class="col-12">
@@ -138,9 +149,19 @@
             <div class="col-12">
               <div class="d-flex align-items-center justify-content-center pb-4">
                 <p class="mb-0 me-2">Don't have an account?</p>
-                <button type="button" class="btn btn-outline-danger" (click)="RegisterPage()">Create new</button>
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#RegisterModal" (click)="RegisterPage()">Create new</button>
               </div>
             </div>
+            <div *ngIf="user==true">
+            <div hidden="" class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>Welcome</strong> Successfully login.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div></div>
+                <div *ngIf="user==false">
+                <div class="alert alert-danger alert-dismissible text-center fade show" role="alert">
+                  <strong>Warning</strong> something went wrong.
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div></div>
           </div>
 
         </form>
@@ -163,6 +184,7 @@
               <input formControlName="name" type="text" class="form-control" placeholder="Name">
               <div *ngIf="GetName().touched && GetName().invalid">
                 <small *ngIf="GetName().hasError('required')" class="text-danger">Name is required</small>
+                <small *ngIf="GetName().hasError('pattern')" class="text-danger">Name invalid</small>
               </div>
             </div>
 
@@ -170,12 +192,17 @@
               <input formControlName="surname" type="text" class="form-control" placeholder="Surname">
               <div *ngIf="GetSurname().touched && GetSurname().invalid ">
                 <small *ngIf="GetSurname().hasError('required')" class="text-danger">Surname is required</small>
+                <small *ngIf="GetSurname().hasError('pattern')" class="text-danger">Surname is invalid</small>
 
               </div>
             </div>
 
             <div class=" col-12">
               <input formControlName="email" type="email" class="form-control" placeholder="Email" required>
+              <div *ngIf="GetEmail().touched && GetEmail().invalid ">
+                <small *ngIf="GetEmail().hasError('required')" class="text-danger">Email is required</small>
+                <small *ngIf="GetEmail().hasError('email')" class="text-danger">Email is invalid</small>
+              </div>
 
             </div>
 
@@ -195,17 +222,43 @@
             </div>
 
             <div class="col-12">
-                <button type="submit" (click)="SaveUserToSassion(GetEmail().value)" class="btn btn-danger form-control">SignUp</button>
+                <button type="submit" [disabled]="Register.untouched&&Register.invalid" (click)="SaveUserToSassion(GetEmail().value)" class="btn btn-danger form-control">SignUp</button>
             </div>
-            <div class="col-12">
+            {{Register.invalid}}
+            <div class="col-12 py-1">
               <button type="button" class="btn btn-danger form-control btn-block"  (click)="Test()" >TEST</button>
             </div>
+            <div *ngIf="user==true">
+              <div hidden="" class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Welcome</strong> Successfully Registered.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div></div>
+            <div *ngIf="user==false">
+              <div class="alert alert-danger alert-dismissible text-center fade show" role="alert">
+                <strong>Warning</strong> something went wrong.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div></div>
           </div>
 
         </form>
       </div>
 
       <!-- ------------------------------------------------------------------ --->
+    </div>
+  </div>
+</div>
+<button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+<div class=" p-3" style="z-index: 11">
+  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="assets/undraw_secure_login_pdn4.svg" class="rounded me-2" alt="...">
+      <strong class="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
     </div>
   </div>
 </div>

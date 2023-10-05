@@ -1,0 +1,34 @@
+.right{
+  float: right;
+}
+a{
+  text-decoration: none;
+}
+.location{
+  color: #a6a6a6;
+  padding: 15px;
+}
+.review{
+
+}
+.paymentdelivery{
+  position:absolute;
+  top:160px;
+  right:120px;
+  width: 300px;
+}
+.card{
+  border-radius: 0px;
+}
+.btn{
+  border-radius: 0px;
+}
+.img{
+  max-width: 70%;
+  max-height:70%
+}
+.disabled {
+  pointer-events: none;
+  display: none;
+}
+

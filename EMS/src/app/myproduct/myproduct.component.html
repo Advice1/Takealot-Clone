@@ -2,13 +2,13 @@
   <div class="card  shadow mb-3" style="max-width: 900px;">
     <div class="row g-6 p-5">
       <div class="col-md-4">
-        <img src="assets/undraw_secure_login_pdn4.svg" class="img-fluid  border border-primary" alt="...">
+        <img src="{{product.image}}" class="img-fluid  border border-primary" alt="...">
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <div class="">
-            <h5 class="card-title text-primary">Product Name</h5>
-            <p class="card-text "><small class="text-muted">more information</small></p>
+            <h5 class="card-title text-primary">{{product.title}}</h5>
+            <p class="card-text "><small class="text-muted">{{product.description}}</small></p>
             <p class="card-text py-1">Reviews</p>
           </div>
           <div class="card-text py-3 border-2 border-top border-bottom">
@@ -47,20 +47,73 @@
     </div>
   </div>
 </div>
+<div class="container px-5 py-3">
+  <div class="card  shadow mb-3" style="max-width: 900px;">
+    <div class="row g-6 p-5">
+
+      <div class="col-md-4">
+        <img src="{{dummyApiProduct.thumbnail}}" class="img-fluid " alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="">
+            <h5 class="card-title text-primary">{{dummyApiProduct.title}}</h5>
+            <p class="card-text "><small class="text-muted">{{dummyApiProduct.description}}</small></p>
+            <small class="text-white bg-dark">brand</small>
+            <span>{{dummyApiProduct.brand}}</span>
+            <p class="card-text ">{{dummyApiProduct.category}}</p>
+            <p class="card-text py-1"><span style="color:yellow;">&starf;</span>{{dummyApiProduct.rating}}</p>
+          </div>
+          <div class="card-text py-3 border-2 border-top border-bottom">
+            <small class="text-white bg-dark">In stock</small>
+            <span class="location">JHB</span>
+            <a class="card-text py-5">where do i get it?</a>
+          </div>
+
+          <div class="shadow py-3">
+            <ul>
+              <li>
+                <i class="next_day_delivery default "></i>
+                <span class="border-bottom">Eligible for next-day delivery or collection.</span>
+              </li>
+              <li>
+                <i class="eligible_for_cod default"></i>
+                <span class="border-bottom">Eligible for Cash on Delivery.</span>
+              </li>
+              <li>
+                <i class="free_delivery_available default"></i>
+                <span>Free Delivery Available.</span>
+              </li>
+              <li>
+                <i class="hassle_free_exchanges_and_returns default"></i>
+                <span class="border-bottom">Hassle-Free Exchanges &amp; Returns for 30 Days.</span>
+              </li>
+              <li>
+                <i class="warranty default">
+                </i><span class="border-bottom">6-Month Limited Warranty.</span>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
 <div class="container">
   <div class="paymentdelivery">
     <div class="row">
       <div class="col-sm-8">
         <div class="card shadow">
           <div class="card-body">
-            <h2 class="card-title">R 2,000</h2>
+            <h2 class="card-title">R {{product.price}}</h2>
             <small>FREE DELIVERY</small>
             <div class="col-sm-12 py-3">
               <p class="card-text">Buy Now, Pay Later</p>
               <p class="card-text text-bg-dark">Pay 4 interest-free instalments of R 424 using Payflex</p>
             </div>
             <div class="d-grid gap-2">
-              <button class="btn btn-success" type="button">Add to Cart</button>
+              <button class="btn btn-success" type="button" (click)="addToCart()">Add to Cart</button>
               <button class="btn btn-outline-primary" type="button">Add to Wishlist</button>
             </div>
           </div>

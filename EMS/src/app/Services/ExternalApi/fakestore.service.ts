@@ -10,12 +10,21 @@ import {Observable} from "rxjs";
 export class FakestoreService {
   //TODO:fake api url
   private Url:string ="https://fakestoreapi.com/products"
+
   constructor(private http:HttpClient) { }
 
-  product():Observable<any> {
+  products():Observable<products[]> {
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     let options = { headers: headers };
-    return this.http.get<any>(this.Url,options);
+    return this.http.get<products[]>(this.Url,options);
   }
+
+  myProduct(ProductId: string | null):Observable<products>{
+    let headers = new HttpHeaders({ 'content-Type': 'application/json'});
+    let options = {headers: headers };
+    return this.http.get<products>(`${this.Url}/${ProductId}`,options)
+  }
+
+
 
 }

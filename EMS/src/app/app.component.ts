@@ -1,4 +1,4 @@
-import {Component, Input, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {LoginComponent} from "./customers/login/login.component";
 import {FormBuilder, Validators} from "@angular/forms";
 import {Name, Password} from "./SharedValidator/Validator";
@@ -7,6 +7,7 @@ import {ApplicationService} from "./Services/application.service";
 import {UserDetails} from "./user-details";
 import {SeasionsService} from "./Services/seasions.service";
 import {UsersService} from "./Services/users.service";
+import {DummyApiService} from "./Services/ExternalApi/dummy-api.service";
 
 
 @Component({
@@ -14,17 +15,38 @@ import {UsersService} from "./Services/users.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'EMS';
   @Input() name="advice"
-  constructor(private route:Router,private formBuilder:FormBuilder,private applicationService:ApplicationService,private sasionsService:SeasionsService,private usersService:UsersService) {}
+  SizeofCart:number=0;
+  searchTerm: string = '';
+  user:boolean=false;
+  userEmail: string='Welcome';
+
+  constructor(private route:Router,private formBuilder:FormBuilder,private applicationService:ApplicationService,private sasionsService:SeasionsService,
+              private usersService:UsersService,private  dummyApi:DummyApiService) {}
   ngOnChanges(change: SimpleChanges){
   }
  ngOnInit(){
+    if(this.sasionsService.getCurrentUser()!=null){
+      this.usersService.getCartSize(this.sasionsService.getCurrentUser()).subscribe((data) => {
+        this.SizeofCart=data;
+      },error => {
+        if (error.status === 0) {
+          console.log("Backend is down or unreachable");
+        } else {
+          console.error("HTTP error:", error);
+        }
+      })
+    }
 
+   if ((this.sasionsService.getCurrentUser()!=null)) {
+     (this.userEmail = "Hi " + this.sasionsService.getCurrentUser().substring(0, 8))
+     this.user=true
+   } //todo need to fix thisd
  }
  ngDoCheck(){
-   this.ngOnInit()
+
  }
  ngAfterContentChecked(){
  }
@@ -32,7 +54,7 @@ export class AppComponent {
     this.ngDoCheck()
  }
   Register = this.formBuilder.group({
-    name: ['Advice',[Validators.maxLength(40),Validators.required,Validators.pattern("[A-Za-z]*$")]],
+    name: ['',[Validators.maxLength(40),Validators.required,Validators.pattern("[A-Za-z]*$")]],
     surname: ['',[Validators.maxLength(40),Validators.required,Validators.pattern("[A-Za-z]*$")]],
     email: ['',[Validators.required,Validators.max(60),Validators.email]],
     password: ['',Password],
@@ -92,19 +114,47 @@ export class AppComponent {
 
 
 OnSubmint() {
-  let UserDetils:string[]=JSON.stringify(this.Register.value).split(',')
+ // let UserDetils:string=JSON.stringify(this.Register.value).split(',')
+  let UserDetils:string=JSON.stringify(this.Register.value)
+  if(this.Register.value==null ){  //todo:need to fix this
+  alert("registration failed")
+  }
+  else{
+    this.usersService.Registration(UserDetils).subscribe(data => {
+       // this.sasionsService.SaveCurrentUser(this.Login.value.email)
+        this.user=true
+      //this.userEmail=this.sasionsService.getCurrentUser()
+        console.log(data)
+      },
+      error => {
 
-  alert("TES"+JSON.stringify(this.Register.value))
-  //alert("TES"+JSON.stringify(this.userdetails))
+        if (error.status === 0) {
+          console.log("Backend is down or unreachable",error,"USER",UserDetils);
+        } else {
+          console.error("HTTP error:", error);
+        }
+    })
+  }
+}
+LoginUser(){
+    this.usersService.LoginUser(this.Login.value.email,this.Login.value.password).subscribe((data) => {
+      if(!data){
+        console.log(data)
+        this.user=data
+      }
+      else{
+        console.log(data)
+        this.sasionsService.SaveCurrentUser(this.Login.value.email)
+        this.user=data
 
-
-
-  this.usersService.Registration(JSON.stringify(this.Register.value)).subscribe(data => console.log(data))
-
- /* if(this.Register.get('name')?.value !== this.Details.name){
-    alert('failed to log in'+this.Register.get('name')?.value)
-  } */
-
+      }
+    },(error)=>{
+      if (error.status === 0) {
+        console.log("Backend is down or unreachable");
+      } else {
+        console.error("HTTP error:", error);
+      }
+    })
 }
 
   RegisterPage()
@@ -119,11 +169,26 @@ OnSubmint() {
   }
   LoginInUser():string{
     alert("current user"+this.sasionsService.getCurrentUser());
-   //need to clarify the condition if user is not logged in
+   //todo:need to clarify the condition if user is not logged in
     return this.sasionsService.getCurrentUser();
   }
   logout(){
     this.sasionsService.logout();
+    this.user=false
+    alert("succesfully logout")
+  }
+  searchProducts(){
+    this.dummyApi.SearchProductsfromDummyApi(this.searchTerm).subscribe((data) =>{
+      //todo:still needs to add logic
+      this.route.navigateByUrl(`/products?searched=${this.searchTerm}`).then(error => console.log(error))
+      console.log(data)
+    },error => {
+      if (error.status === 0) {
+        console.log("Backend is down or unreachable");
+      } else {
+        console.error("HTTP error:", error);
+      }
+    })
   }
 
 

@@ -3,13 +3,18 @@
   width:600px;
   position: absolute;
   left: 390px;
-  top:670px;
+  top:750px;
+  background-color: #D0D0D0;
 }
 .name{
   position:absolute;
-  top:68px;
+  top:-110px;
   right:1010px;
   text-decoration: none !important;
+  scale:1 0.6 1;
+}
+.text{
+  transform: scale(1)
 }
 .name.hover{
   text-decoration: none;

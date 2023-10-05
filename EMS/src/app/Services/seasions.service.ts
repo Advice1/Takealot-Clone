@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 export class SeasionsService {
   User:any='current-user'
   constructor() { }
-  SaveCurrentUser(loginedUser:string):any{
+  //todo:i need to  change type
+  SaveCurrentUser(loginedUser:string | any):any{
     window.localStorage.setItem(this.User,loginedUser)
    return  window.sessionStorage.setItem(this.User,loginedUser);
   }
