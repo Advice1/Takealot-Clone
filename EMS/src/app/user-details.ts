@@ -3,5 +3,5 @@ export interface UserDetails {
   Surname:any,
   Email:any,
   password:any
-  Test:string[]
+
 }

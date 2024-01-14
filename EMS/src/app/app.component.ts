@@ -17,16 +17,15 @@ import {DummyApiService} from "./Services/ExternalApi/dummy-api.service";
 })
 export class AppComponent implements OnInit{
   title = 'EMS';
-  @Input() name="advice"
   SizeofCart:number=0;
   searchTerm: string = '';
   user:boolean=false;
+  message:string=''
   userEmail: string='Welcome';
 
   constructor(private route:Router,private formBuilder:FormBuilder,private applicationService:ApplicationService,private sasionsService:SeasionsService,
               private usersService:UsersService,private  dummyApi:DummyApiService) {}
-  ngOnChanges(change: SimpleChanges){
-  }
+
  ngOnInit(){
     if(this.sasionsService.getCurrentUser()!=null){
       this.usersService.getCartSize(this.sasionsService.getCurrentUser()).subscribe((data) => {
@@ -43,16 +42,9 @@ export class AppComponent implements OnInit{
    if ((this.sasionsService.getCurrentUser()!=null)) {
      (this.userEmail = "Hi " + this.sasionsService.getCurrentUser().substring(0, 8))
      this.user=true
-   } //todo need to fix thisd
+   } //todo need to fix this
  }
- ngDoCheck(){
 
- }
- ngAfterContentChecked(){
- }
- ngDistroy(){
-    this.ngDoCheck()
- }
   Register = this.formBuilder.group({
     name: ['',[Validators.maxLength(40),Validators.required,Validators.pattern("[A-Za-z]*$")]],
     surname: ['',[Validators.maxLength(40),Validators.required,Validators.pattern("[A-Za-z]*$")]],
@@ -65,7 +57,6 @@ export class AppComponent implements OnInit{
     email: ['',[Validators.required,Validators.max(60),Validators.email]],
     password: ['',[Password]]
   })
-  MyArray:String[]=this.applicationService.ApplicacionList();
   GetPassword():any{
     return this.Register.get('password');
   }
@@ -83,15 +74,6 @@ export class AppComponent implements OnInit{
     Surname:'Nxumalo',
     Email:'drnxumza@gmail.com',
     password:'0784061792',
-    Test:['Advice','Nxumalo'],
-  };
-
-  userdetails : UserDetails = {
-    name:this.GetName(),
-    Surname:this.GetSurname(),
-    Email:this.GetPassword(),
-    password:this.GetPassword(),
-    Test:['Advice','Nxumalo'],
   };
 
   Test() {
@@ -100,10 +82,8 @@ export class AppComponent implements OnInit{
       surname: this.Details.Surname,
       email:this.Details.Email,
       password: this.Details.password,
-      confirmPassword: '123'
+      confirmPassword: this.Details.password
     });
-    this.Details.Test.push("['BMW']")
-
   }
   TestLogin(){
     this.Login.setValue({
@@ -114,22 +94,24 @@ export class AppComponent implements OnInit{
 
 
 OnSubmint() {
- // let UserDetils:string=JSON.stringify(this.Register.value).split(',')
+
   let UserDetils:string=JSON.stringify(this.Register.value)
   if(this.Register.value==null ){  //todo:need to fix this
   alert("registration failed")
+    this.message="registration failed";
   }
   else{
     this.usersService.Registration(UserDetils).subscribe(data => {
-       // this.sasionsService.SaveCurrentUser(this.Login.value.email)
-        this.user=true
-      //this.userEmail=this.sasionsService.getCurrentUser()
+
+        this.message="Registration Successful";
         console.log(data)
       },
       error => {
 
         if (error.status === 0) {
           console.log("Backend is down or unreachable",error,"USER",UserDetils);
+          this.message="backend problem";
+          alert(this.message)
         } else {
           console.error("HTTP error:", error);
         }
@@ -139,14 +121,15 @@ OnSubmint() {
 LoginUser(){
     this.usersService.LoginUser(this.Login.value.email,this.Login.value.password).subscribe((data) => {
       if(!data){
-        console.log(data)
+        console.log("test",data)
         this.user=data
+        this.message="Login unsuccessful password/email incorrect"
       }
       else{
-        console.log(data)
+        console.log("user ",data)
         this.sasionsService.SaveCurrentUser(this.Login.value.email)
         this.user=data
-
+        this.message="Welcome "+this.sasionsService.getCurrentUser()
       }
     },(error)=>{
       if (error.status === 0) {
@@ -161,20 +144,15 @@ LoginUser(){
   {
     this.route.navigateByUrl('/registration').then(r => console.log(r))
   }
-  Validation(){
-    // Myform.forEach((each)=>{this.Login.addControl(each.ControlName,each.Control)})
-  }
   SaveUserToSassion(Username:string){
     this.sasionsService.SaveCurrentUser(Username)
   }
-  LoginInUser():string{
-    alert("current user"+this.sasionsService.getCurrentUser());
-   //todo:need to clarify the condition if user is not logged in
-    return this.sasionsService.getCurrentUser();
-  }
+
   logout(){
     this.sasionsService.logout();
     this.user=false
+    this.route.navigateByUrl(`/home`)
+
     alert("succesfully logout")
   }
   searchProducts(){

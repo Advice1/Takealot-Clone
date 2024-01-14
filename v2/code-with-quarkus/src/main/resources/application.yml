@@ -1,0 +1,18 @@
+greeting:
+  message: hello
+  response: how are you
+stripe:
+  Api:
+    key: "sk_test_51NttltKdfsYm0s89hpvPmjIaiVhKYDUAyGo7vtzrgM4EVPxQDDZ8QeyHLRT3J0Yxk9kU0fiO2CXXtjoHGNFykI4H00ThLXIqDG"
+quarkus:
+  http:
+    cors:
+      ~: true
+      origins: http://localhost:4200
+      methods: GET,PUT,POST,PATCH,DELETE
+      access-control-allow-credentials: true
+  mongodb:
+    connection-string: mongodb://localhost:27017,localhost:27018,localhost:27019/
+    replica-set-name: rs0
+    read-preference: secondaryPreferred
+    database: EMSS

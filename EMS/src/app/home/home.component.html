@@ -20,7 +20,7 @@
 <div id="carouselExampleInterval" class="carousel slide  " data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="1000">
-      <img src="../../assets/undraw_secure_login_pdn4.svg" class="d-block w-75" alt="...">
+      <img src="../../assets/undraw_secure_login_pdn4.svg" class="d-block img w-75" alt="...">
     </div>
     <div class="carousel-item" data-bs-interval="2000">
       <img src="../../assets/undraw_secure_login_pdn4.svg" class="d-block w-75" alt="...">
@@ -44,12 +44,22 @@
   <h4 >Feature Product</h4>
   <nav aria-label="Page navigation example">
 
-      <div  class="">
-       <a href="#"> <img src="https://media.takealot.com/b/2/cms/p/fit-in/180x120/original_images/HealthBeauty_Brand15.png" alt="Nivea Brand" ></a>
-        <img src="https://media.takealot.com/b/2/cms/p/fit-in/180x120/original_images/Computers_Brand4.png" alt="Canon" draggable="false" data-ref="brand-image">
-        <img src="https://media.takealot.com/b/2/cms/p/fit-in/160x70/original_images/398bc48815c135c0f074174a2a5d4acdb36534ea_dRbMDMz.png" alt="Samsung Brand Store Logo" draggable="false" data-ref="brand-image">
-        <img src="https://media.takealot.com/b/2/cms/p/fit-in/160x70/original_images/e268dc0cdc00e971ec2c1b4a26ae310bb8a368e1.png" alt="Cetaphil_Logo-(160-x-70)-" draggable="false" data-ref="brand-image" >
-      </div>
+      <div  class="py-2 text-center">
+        <div class="row">
+          <div class="col">
+            <a href="#"> <img class="image" src="https://media.takealot.com/b/2/cms/p/fit-in/180x120/original_images/HealthBeauty_Brand15.png" alt="Nivea Brand" ></a>
+          </div>
+          <div class="col">
+            <img class="image" src="https://media.takealot.com/b/2/cms/p/fit-in/180x120/original_images/Computers_Brand4.png" alt="Canon" draggable="false" data-ref="brand-image">
+          </div>
+          <div class="col">
+            <img class="image" src="https://media.takealot.com/b/2/cms/p/fit-in/160x70/original_images/398bc48815c135c0f074174a2a5d4acdb36534ea_dRbMDMz.png" alt="Samsung Brand Store Logo" draggable="false" data-ref="brand-image">
+          </div>
+          <div class="col">
+            <img class="image" src="https://media.takealot.com/b/2/cms/p/fit-in/160x70/original_images/e268dc0cdc00e971ec2c1b4a26ae310bb8a368e1.png" alt="Cetaphil_Logo-(160-x-70)-" draggable="false" data-ref="brand-image" >
+          </div>
+        </div>
+         </div>
 
   </nav>
 
@@ -68,73 +78,7 @@
     </div>
   </div>
 </div>
-
-<div class="container  py-5">
-  <div class="cards">
-  <div class="card">
-    <div class="card-body">
-      <p class="fw-bold">Sponsored Deals</p>
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-      </div>
-  </div>
-
-  </div>
-
-  <div class="row mt-3">
-    <div class="col-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container-fluid">
+  <app-products></app-products>
 </div>
-  </div>
-<div class="modal  fade"  #MyModal id="RegisterModal" tabindex="-1" aria-labelledby="RegisterModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content" >
-      <!-- ------------------------------------------------------------------- --->
-      <h1>hello</h1>
-      <!-- ------------------------------------------------------------------ --->
-    </div>
-  </div>
-</div>
+

@@ -39,7 +39,6 @@ export class RegistrationComponent {
     Surname:'Nxumalo',
     Email:'drnxumza@gmail.com',
     password:'0784061792',
-   Test:[]
 };
 
   Test() {

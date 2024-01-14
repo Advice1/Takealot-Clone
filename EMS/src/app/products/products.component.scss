@@ -1,12 +1,16 @@
+body{
+  background-color: #ededed;
+}
 .cards{
-  width:920px;
+  width:1000px;
 }
 .right{
   float: right;
 }
 .img{
   max-width: 500px;
-  max-height:110px
+  max-height:110px;
+  object-fit: cover;
 }
 .container{
 

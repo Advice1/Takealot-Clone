@@ -8,10 +8,12 @@
 }
 .name{
   position:absolute;
-  top:-110px;
+  top:-55px;
   right:1010px;
   text-decoration: none !important;
-  scale:1 0.6 1;
+  scale:1 0.7 1;
+  font-family: sans-serif;
+  font-size: smaller;
 }
 .text{
   transform: scale(1)
@@ -26,10 +28,9 @@
 }
 .order_
 {
-  width: 290px;
+  width: 285px;
   height: 100px;
-  border-width: 4px;
-  border-color: crimson;
+  border-color: rgba(0,0,0,0.5);
 }
 .order_c{
   position:absolute;
@@ -39,9 +40,18 @@
 .orderz
 {
   width: 290px;
-  height: 405px;
-  border-width: 4px;
-  border-color: whitesmoke;
-  border-color: crimson;
+  height: 385px;
+  border: none;
+  //border-width: 4px;
+  //border-color: whitesmoke;
+  //border-color: crimson;
+}
+.image{
+  max-width: 55%;
+  height: auto;
+  object-fit: cover;
+}
+.img{
+  object-fit: cover;
 }
 

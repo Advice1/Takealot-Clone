@@ -1,10 +1,19 @@
-<div class="container">
-  <img src="assets/takealotproduct.webp" class="card-img-top py-2"  alt="...">
+<body>
+<div *ngIf="results==true">
+  <div class="container py-2">
+    <img src="assets/takealotproduct.webp" class="card-img-top py-2" alt="...">
+  </div>
 </div>
 
-<div class="container cards">
+<div *ngIf="results==false">
+  <div class="container py-2">
+    <img src="assets/takealotproduct.webp" hidden="true" class=" card-img-top py-2" alt="...">
+  </div>
+</div>
 
-  <div class="row">
+<div class="container py-2 ">
+
+  <div class="row cards">
     <div class="col">
       <h5 class="text">Popular products for you</h5>
     </div>
@@ -15,10 +24,12 @@
 
 </div>
 
-<div class="container cards">
-  <div class="row">
-    <div *ngFor="let products of GetAllproducts; let ProductsId=index " class="test  col-lg-3  py-3 " >
-      <a href="#"><div class="card"></div></a>
+<div class="container">
+  <div class="row cards">
+    <div *ngFor="let products of GetAllproducts; let ProductsId=index " class="test  col-lg-3  py-3 ">
+      <a href="#">
+        <div class="card"></div>
+      </a>
       <div class="card grow shadow">
         {{ProductsId}}
         <img src={{products?.image}} class="card-img-top  img" (click)="onClickView(ProductsId+1)" alt="...">
@@ -28,7 +39,7 @@
             <div class="row">
               <div class="col-12 py-2">
                 <small class="text-white bg-dark">In stock</small>
-                <span  style="float: right; color: #a6a6a6">JHB</span>
+                <span style="float: right; color: #a6a6a6">JHB</span>
               </div>
               <div class="col-12">
                 <h6>R {{products.price}}</h6>
@@ -37,8 +48,16 @@
                 <p>Reviews</p>
               </div>
               <div class="col-12 text-center">
-                <button type="button" class=" btn btn-sm btn-outline-primary" (click)="ProductfromfakestoretoAddToCart(ProductsId+1)"><svg viewBox="0 0 10 24" role="presentation" class="badge-button-module_badge-icon_LvKrF" style="width: 18px; height: 18px;"><path d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z" style="fill: currentcolor;"></path></svg>
-                  <span class="badge-count badge-button-module_badge-count_28PIS text-white"> </span>Add to Cart</button>
+                <button type="button" class=" btn btn-sm btn-outline-primary"
+                        (click)="ProductfromfakestoretoAddToCart(ProductsId+1)">
+                  <svg viewBox="0 0 10 24" role="presentation" class="badge-button-module_badge-icon_LvKrF"
+                       style="width: 18px; height: 18px;">
+                    <path
+                      d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z"
+                      style="fill: currentcolor;"></path>
+                  </svg>
+                  <span class="badge-count badge-button-module_badge-count_28PIS text-white"> </span>Add to Cart
+                </button>
               </div>
             </div>
           </div>
@@ -48,9 +67,9 @@
     </div>
   </div>
 </div>
-<div class="container cards py-3">
+<div class="container  py-3">
 
-  <div class="row">
+  <div class="row cards">
     <div class="col">
       <h5 class="text">Popular products from dummy Api</h5>
     </div>
@@ -60,19 +79,22 @@
   </div>
 
 </div>
-<div class="container cards">
-  <div class="row">
-    <div *ngFor="let product of AllProductsfromDummyApi.products; let ProductsId=index " class="test  col-lg-3  py-3 " >
-      <a href="#"><div class="card"></div></a>
+<div class="container ">
+  <div class="row cards">
+    <div *ngFor="let product of AllProductsfromDummyApi.products; let ProductsId=index " class="test  col-lg-3  py-3 ">
+      <a href="#">
+        <div class="card"></div>
+      </a>
       <div class="card grow shadow">
-        <img src="{{product.thumbnail}}" class="card-img-top  img" (click)="onClickViewDummyApi(ProductsId+1)" alt="...">
+        <img src="{{product.thumbnail}}" class="card-img-top  img" (click)="onClickViewDummyApi(ProductsId+1)"
+             alt="...">
         <div class="card-body">
           <h6 class="card-title-s text-sm">{{product.title}}</h6>
           <div class="icons">
             <div class="row">
               <div class="col-12 py-2">
                 <small class="text-white bg-dark">In stock</small>
-                <span  style="float: right; color: #a6a6a6">JHB</span>
+                <span style="float: right; color: #a6a6a6">JHB</span>
               </div>
               <div class="col-12">
                 <h6>R {{product.price}}</h6>
@@ -81,8 +103,15 @@
                 <p><span style="color:yellow;">&starf;</span>{{product.rating}}</p>
               </div>
               <div class="col-12 text-center">
-                <button type="button" class=" btn btn-sm btn-outline-primary" (click)="ProductfromfakestoretoAddToCart(ProductsId+1)"><svg viewBox="0 0 10 24" role="presentation" class="badge-button-module_badge-icon_LvKrF" style="width: 18px; height: 18px;"><path d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z" style="fill: currentcolor;"></path></svg>
-                  <span class="badge-count badge-button-module_badge-count_28PIS text-white"> </span>Add to Cart</button>
+                <button type="button" class=" btn btn-sm btn-outline-primary">
+                  <svg viewBox="0 0 10 24" role="presentation" class="badge-button-module_badge-icon_LvKrF"
+                       style="width: 18px; height: 18px;">
+                    <path
+                      d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z"
+                      style="fill: currentcolor;"></path>
+                  </svg>
+                  <span class="badge-count badge-button-module_badge-count_28PIS text-white"> </span>Add to Cart
+                </button>
               </div>
             </div>
           </div>
@@ -92,5 +121,5 @@
     </div>
   </div>
 </div>
-
+</body>
 

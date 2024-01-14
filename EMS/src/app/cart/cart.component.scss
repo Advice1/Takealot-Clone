@@ -1,3 +1,6 @@
+body{
+  background-color: #ededed;
+}
 .right{
   float: right;
 }
@@ -26,6 +29,7 @@ a{
 .img{
   max-width: 70%;
   max-height:70%
+
 }
 .disabled {
   pointer-events: none;

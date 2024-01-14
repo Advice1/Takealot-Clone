@@ -21,6 +21,7 @@ public class Products {
     private String category;
     //private String thumbnail;
     private String image;
+    private String user;
 
 }
 

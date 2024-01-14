@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class UsersService {
-private Url:string ="http://localhost:8080/greeting/"
+private Url:string ="http://localhost:8080/subscription/"
   private StripeUrl:string ="http://localhost:8080/Stripe/"
 
   constructor(private http: HttpClient) { }
@@ -26,6 +26,11 @@ private Url:string ="http://localhost:8080/greeting/"
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     let options = { headers: headers };
     return this.http.post(`${this.Url}/cart/`,carts,options);
+  }
+  CheckExistingCart(username:string,id:string):Observable<boolean>{
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    let options = { headers: headers };
+    return this.http.get<boolean>(`${this.Url}/cart/exist/${username}/${id}`,options);
   }
   getAllCarts(username:string):Observable<products[]>{
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
